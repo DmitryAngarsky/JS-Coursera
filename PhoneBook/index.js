@@ -28,13 +28,14 @@ module.exports = function (command) {
             for (var name in phoneBook) {
                 var index = phoneBook[name].indexOf(numberDel);
                 if (index >= 0) {
-                    if (phoneBook[name].length > 1)
-                    phoneBook[name].splice(index, 1);
-                    else
-                        delete phoneBook[name];
+                    if (phoneBook[name].length > 1) {
+                        phoneBook[name].splice(index, 1); }
+                    else {
+                        delete phoneBook[name]; }
+                    return true;
                 }
             }
-            break;
+            return false;
         case 'SHOW':
             var str = [];
             for (var name in phoneBook) {
